@@ -14,10 +14,12 @@ struct Constant {
     static let stockListIdentifier = "StockListId"
     static let API_KEY = "2SMUEF5ZDLLLJEYK"
     static let BASE_URL = "https://www.alphavantage.co/query"
-   static let Function = "function"
+    static let Function = "function"
     static let batchStockQuotes = "BATCH_STOCK_QUOTES"
     static let timeSeries = "TIME_SERIES_DAILY"
     static let symbols = "symbols"
     static let apikey = "apikey"
+    static let stockSegue = "StockDetail"
+    static let detailSymbol = "symbol"
 }
 

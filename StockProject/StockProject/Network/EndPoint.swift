@@ -20,10 +20,13 @@ enum APIRouter : APIConfiguration {
     func asURLRequest() throws -> URLRequest {
         let url = Constant.BASE_URL
         var urlRequest = URLRequest(url: URL(string: url)!, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 30.0)
+//        let urlParameters = "function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=2SMUEF5ZDLLLJEYK"
+//        var urlRequest = URLRequest(url: URL(string: "\(url)?\(urlParameters)")!)
         urlRequest.httpMethod = method.rawValue
-      
+//        return urlRequest
+      let paramete = parameters
         return try URLEncoding.default.encode(urlRequest, with: parameters)
-            
+        
       
         
     }
@@ -40,9 +43,9 @@ enum APIRouter : APIConfiguration {
     var parameters: Parameters?{
         switch self {
         case .stocks:
-            return [Constant.API_KEY : Constant.apikey,Constant.Function :Constant.batchStockQuotes,Constant.symbols : "MSFT,FB,AAPL,NDAQ"]
+            return [Constant.apikey : Constant.API_KEY,Constant.Function :Constant.batchStockQuotes,Constant.symbols : "MSFT,FB,AAPL,NDAQ"]
         case .stockDetail(let symbols):
-            return [Constant.API_KEY : Constant.apikey,Constant.symbols : symbols]
+            return [Constant.apikey : Constant.API_KEY,Constant.detailSymbol : symbols,Constant.Function:Constant.timeSeries]
         }
     }
 

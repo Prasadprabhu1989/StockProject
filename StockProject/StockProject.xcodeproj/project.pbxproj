@@ -24,6 +24,8 @@
 		FD88DC1120F36279001872FB /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DC1020F36279001872FB /* Stocks.swift */; };
 		FD88DC1320F36507001872FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DC1220F36507001872FB /* APIClient.swift */; };
 		FD88DC1520F365A3001872FB /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DC1420F365A3001872FB /* EndPoint.swift */; };
+		FD88DC1720F47F66001872FB /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DC1620F47F66001872FB /* StockDetailViewController.swift */; };
+		FD88DC1920F4D18F001872FB /* StockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DC1820F4D18F001872FB /* StockDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		FD88DC1020F36279001872FB /* Stocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stocks.swift; sourceTree = "<group>"; };
 		FD88DC1220F36507001872FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FD88DC1420F365A3001872FB /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		FD88DC1620F47F66001872FB /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		FD88DC1820F4D18F001872FB /* StockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				FD88DBD520F33D6C001872FB /* StockListController.swift */,
+				FD88DC1620F47F66001872FB /* StockDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				FD88DC0E20F3624E001872FB /* StockViewModel.swift */,
+				FD88DC1820F4D18F001872FB /* StockDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -444,12 +450,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD88DC1720F47F66001872FB /* StockDetailViewController.swift in Sources */,
 				FD88DBD620F33D6C001872FB /* StockListController.swift in Sources */,
 				FD88DC0B20F34283001872FB /* StockViewCell.swift in Sources */,
 				FD88DC1120F36279001872FB /* Stocks.swift in Sources */,
 				FD88DC1520F365A3001872FB /* EndPoint.swift in Sources */,
 				FD88DC1320F36507001872FB /* APIClient.swift in Sources */,
 				FD88DC0D20F35F60001872FB /* Constant.swift in Sources */,
+				FD88DC1920F4D18F001872FB /* StockDetailViewModel.swift in Sources */,
 				FD88DC0F20F3624E001872FB /* StockViewModel.swift in Sources */,
 				FD88DBD420F33D6C001872FB /* AppDelegate.swift in Sources */,
 				FD88DBDC20F33D6C001872FB /* StockProject.xcdatamodeld in Sources */,

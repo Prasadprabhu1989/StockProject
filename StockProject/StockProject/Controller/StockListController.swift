@@ -8,37 +8,62 @@
 
 import UIKit
 
-class StockListController: UITableViewController {
+class StockListController: UIViewController {
     var viewModel  = StockViewModel()
   
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var stockTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        loadingIndicator.startAnimating()
+        stockTableView.isHidden = true
+      loadingIndicator.hidesWhenStopped = true
         viewModel.loadStocks(completion: { [weak self] stocksViewModel in
             self?.viewModel = stocksViewModel!
-            self?.tableView.reloadData()
+            self?.loadingIndicator.stopAnimating()
+            self?.stockTableView.isHidden = false
+            self?.stockTableView.reloadData()
         })
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+       
         // Dispose of any resources that can be recreated.
     }
 
 
 }
-extension StockListController{
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+extension StockListController:UITableViewDelegate,UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getStockCount()
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.stockListIdentifier, for: indexPath) as! StockViewCell
         let stockss = viewModel.stocks?.stocks![indexPath.row]
         cell.stockDateLabel.text = stockss?.timeStamp
         cell.stockTitleLabel.text = stockss?.symbol
-        return cell
+         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Constant.stockSegue, sender: indexPath)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = stockTableView.indexPathForSelectedRow{
+            let stock = viewModel.stocks?.stocks![indexPath.row]
+            let stockDetailController : StockDetailViewController = segue.destination as! StockDetailViewController
+            stockDetailController.symbol = stock?.symbol
+        }
+       
     }
 }
 

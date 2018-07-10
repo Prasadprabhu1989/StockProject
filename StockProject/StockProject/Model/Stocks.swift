@@ -21,7 +21,7 @@ struct stockQuotes : Decodable{
     private enum CodingKeys : String, CodingKey {
         case symbol = "1. symbol"
         case price = "2. price"
-        case timeStamp = "3. timestamp"
+        case timeStamp = "4. timestamp"
     }
     
 }
