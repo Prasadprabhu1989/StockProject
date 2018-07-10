@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F42B04EBB6642EACA20E4A2 /* Pods_StockProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478030C66D7751104821D672 /* Pods_StockProjectTests.framework */; };
 		4103E57D6AABDC919A7D8E62 /* Pods_StockProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5238C9365FC3933C0065F241 /* Pods_StockProject.framework */; };
+		5FC5C16B20F503AA005747D1 /* StockDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5C16A20F503AA005747D1 /* StockDetailModel.swift */; };
 		F66C49AB1B4E913533A8F2B3 /* Pods_StockProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5FD95F9ECA844119E9D641C /* Pods_StockProjectUITests.framework */; };
 		FD88DBD420F33D6C001872FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DBD320F33D6C001872FB /* AppDelegate.swift */; };
 		FD88DBD620F33D6C001872FB /* StockListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88DBD520F33D6C001872FB /* StockListController.swift */; };
@@ -50,6 +51,7 @@
 		45B78A94E7AD321E7C1F99CC /* Pods-StockProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockProject/Pods-StockProject.debug.xcconfig"; sourceTree = "<group>"; };
 		478030C66D7751104821D672 /* Pods_StockProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5238C9365FC3933C0065F241 /* Pods_StockProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FC5C16A20F503AA005747D1 /* StockDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailModel.swift; sourceTree = "<group>"; };
 		775DBE6A40E63596AE878E3B /* Pods-StockProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockProjectUITests/Pods-StockProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2CAEA3F290E129AE907D826 /* Pods-StockProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockProjectTests/Pods-StockProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE3388017DBAE114737E4205 /* Pods-StockProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockProjectTests/Pods-StockProjectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				FD88DC1020F36279001872FB /* Stocks.swift */,
+				5FC5C16A20F503AA005747D1 /* StockDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				FD88DC0B20F34283001872FB /* StockViewCell.swift in Sources */,
 				FD88DC1120F36279001872FB /* Stocks.swift in Sources */,
 				FD88DC1520F365A3001872FB /* EndPoint.swift in Sources */,
+				5FC5C16B20F503AA005747D1 /* StockDetailModel.swift in Sources */,
 				FD88DC1320F36507001872FB /* APIClient.swift in Sources */,
 				FD88DC0D20F35F60001872FB /* Constant.swift in Sources */,
 				FD88DC1920F4D18F001872FB /* StockDetailViewModel.swift in Sources */,

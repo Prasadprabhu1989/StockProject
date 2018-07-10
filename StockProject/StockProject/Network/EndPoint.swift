@@ -24,7 +24,7 @@ enum APIRouter : APIConfiguration {
 //        var urlRequest = URLRequest(url: URL(string: "\(url)?\(urlParameters)")!)
         urlRequest.httpMethod = method.rawValue
 //        return urlRequest
-      let paramete = parameters
+     
         return try URLEncoding.default.encode(urlRequest, with: parameters)
         
       

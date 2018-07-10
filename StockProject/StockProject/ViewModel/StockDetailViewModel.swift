@@ -8,10 +8,22 @@
 
 import Foundation
 class StockDetailViewModel{
-    func loadStockDetails(symbols : String, completion : (StockDetailViewModel?) -> Void)
+     var responseError : Error?
+    func loadStockDetails(symbols : String, completion : @escaping (StockDetailViewModel?) -> Void)
     {
-        APIClient.loadStockDetails(symbols: symbols) { (data, error) in
-            
+        APIClient.loadStockDetails(symbols: symbols) { [weak self](data, error) in
+            if let responseData = data {
+                do {
+                    
+                }
+                catch {
+                    
+                }
+            }
+            if let err = error {
+                self?.responseError = err
+                completion(self)
+            }
         }
     }
 }
