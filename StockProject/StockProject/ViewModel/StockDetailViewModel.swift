@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 class StockDetailViewModel{
      var responseError : Error?
     func loadStockDetails(symbols : String, completion : @escaping (StockDetailViewModel?) -> Void)
@@ -14,6 +15,10 @@ class StockDetailViewModel{
         APIClient.loadStockDetails(symbols: symbols) { [weak self](data, error) in
             if let responseData = data {
                 do {
+               
+                    let json = try JSON(data: responseData)
+                    print(json)
+                    
                     
                 }
                 catch {

@@ -18,6 +18,7 @@ struct stockQuotes : Decodable{
     let symbol : String?
     let price : String?
     let timeStamp : String?
+    
     private enum CodingKeys : String, CodingKey {
         case symbol = "1. symbol"
         case price = "2. price"

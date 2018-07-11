@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 class StockViewModel {
     var stocks : stock?
+    var metaData : MetaDataModel?
     var responseError : Error?
     
     func getStockCount() -> Int{

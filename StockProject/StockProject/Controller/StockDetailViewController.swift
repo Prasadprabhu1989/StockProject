@@ -16,6 +16,7 @@ class StockDetailViewController: UIViewController {
         viewModel.loadStockDetails(symbols: symbol!, completion: { stockViewModel in
             
         })
+       
 
         // Do any additional setup after loading the view.
     }
