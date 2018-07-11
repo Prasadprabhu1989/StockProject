@@ -13,20 +13,45 @@ class StockListController: UIViewController {
   
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var stockTableView: UITableView!
-    
+    lazy var refreshControl : UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.black
+        return refreshControl
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingIndicator.startAnimating()
         stockTableView.isHidden = true
       loadingIndicator.hidesWhenStopped = true
+        if Connectivity.isConnected() {
+              callStockList()
+        }
+        else {
+            self.showAlertForError(errorName: Errors.networkError)
+        }
+        
+        
+    }
+    func callStockList(){
         viewModel.loadStocks(completion: { [weak self] stocksViewModel in
+            
+            if let error = stocksViewModel?.responseError {
+               self?.showAlertForError(errorName: error.localizedDescription)
+            }
+            else{
             self?.viewModel = stocksViewModel!
             self?.loadingIndicator.stopAnimating()
             self?.stockTableView.isHidden = false
             self?.stockTableView.reloadData()
+            }
         })
-        
     }
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        callStockList()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
@@ -62,8 +87,18 @@ extension StockListController:UITableViewDelegate,UITableViewDataSource {
             let stock = viewModel.stocks?.stocks![indexPath.row]
             let stockDetailController : StockDetailViewController = segue.destination as! StockDetailViewController
             stockDetailController.symbol = stock?.symbol
+            
         }
        
     }
 }
-
+extension UIViewController{
+    func showAlertForError(errorName : String){
+   
+            let alertController = UIAlertController(title: "Message", message: errorName, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        
+    }
+}
