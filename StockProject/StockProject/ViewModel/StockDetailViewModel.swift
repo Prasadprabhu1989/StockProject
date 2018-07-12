@@ -42,21 +42,41 @@ class StockDetailViewModel{
             }
         }
     }
+    
+    
     func getOpenStock() -> String?{
-        return "\(self.stockModel?.open)"
-//        return "Open :\(String(describing: self.stockModel?.open))"
+
+        if let stockModel = self.stockModel {
+        
+            
+            return "Open :\(stockModel.open ?? "")"
+        }
+        return nil
+      
     }
     func getCloseStock() -> String?{
-        return "Close :\(String(describing: self.stockModel?.close))"
+        if let stockModel = self.stockModel {
+            return "Close :\(stockModel.close ?? "")"
+        }
+        return nil
     }
     func getLowStock() -> String?{
-        return "Low :\(String(describing: self.stockModel?.low))"
+        if let stockModel = self.stockModel {
+            return "Low : \(stockModel.low ?? "")"
+        }
+        return nil
     }
     func getHighStock() -> String?{
-        return "High :\(String(describing: self.stockModel?.high))"
+        if let stockModel = self.stockModel {
+            return "High : \(stockModel.high ?? "")"
+        }
+        return nil
     }
     func getVolumeStock() -> String?{
-        return "Volume :\(String(describing: self.stockModel?.volume))"
+        if let stockModel = self.stockModel {
+            return "Volume : \(stockModel.volume ?? "")"
+        }
+        return nil
     }
 }
 
@@ -64,6 +84,9 @@ class StockDetailViewModel{
 extension String{
     static func trimTimeFromDate(date: String) -> String {
         var dateString = date
+        if dateString.count == 10 {
+            return dateString
+        }
         let range = dateString.index(dateString.endIndex, offsetBy: -9)..<dateString.endIndex
         dateString.removeSubrange(range)
         return dateString

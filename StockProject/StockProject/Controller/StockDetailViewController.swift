@@ -26,10 +26,22 @@ class StockDetailViewController: UIViewController {
         loadingIndicator.startAnimating()
         detailview.isHidden = true
          loadingIndicator.hidesWhenStopped = true
+        self.navigationItem.title = symbol!
+        if Connectivity.isConnected() {
+            callStockDetail()
+        }
+        else{
+            showAlertForError(errorName: Errors.networkError)
+        }
+
+        // Do any additional setup after loading the view.
+    }
+    func callStockDetail(){
         viewModel.loadStockDetails(symbols: symbol!, completion: { [weak self]stockViewModel in
             if (stockViewModel?.stockModel) != nil{
                 self?.loadingIndicator.isHidden = true
                 self?.detailview.isHidden = false
+                
                 if let open = stockViewModel?.getOpenStock(){
                     print(open)
                     self?.openLabel.text = open
@@ -46,21 +58,14 @@ class StockDetailViewController: UIViewController {
                 if let high = stockViewModel?.getHighStock(){
                     self?.highLabel.text = high
                 }
-//                self?.openLabel.text = stockViewModel?.getOpenStock()
-//                self?.closeLabel.text = stockViewModel?.getCloseStock()
-//                self?.volumeLabel.text = stockViewModel?.getVolumeStock()
-//                self?.lowLabel.text = stockViewModel?.getLowStock()
-//                self?.highLabel.text = stockViewModel?.getHighStock()
+                
             }
             else if let error = stockViewModel?.responseError{
                 self?.showAlertForError(errorName: error.localizedDescription)
             }
         })
-       
-
-        // Do any additional setup after loading the view.
+        
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

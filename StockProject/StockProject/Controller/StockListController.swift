@@ -23,6 +23,7 @@ class StockListController: UIViewController {
         super.viewDidLoad()
         loadingIndicator.startAnimating()
         stockTableView.isHidden = true
+    stockTableView.addSubview(refreshControl)
       loadingIndicator.hidesWhenStopped = true
         if Connectivity.isConnected() {
               callStockList()
@@ -45,6 +46,7 @@ class StockListController: UIViewController {
             self?.stockTableView.isHidden = false
             self?.stockTableView.reloadData()
             }
+            self?.refreshControl.endRefreshing()
         })
     }
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
